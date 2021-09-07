@@ -1,0 +1,31 @@
+{
+  "name": "cataloguedb",
+  "version": "0.0.1",
+  "author": "Alexandros Fouskas",
+  "dependencies": [
+    {
+      "name": "puppetlabs/mysql",
+      "version_range": "12.0.1"
+    }
+  ],
+  "summary": "Set up catalogue db",
+  "license": "Apache-2.0",
+  "source": "https://module-source.fouskas.de",
+  "project_page": "https://module-source.fouskas.de",
+  "issues_url": "https://module-source.fouskas.de",
+  "data_provider": "hiera",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "20.04"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 6.0.0 < 7.0.0"
+    }
+  ]
+}
