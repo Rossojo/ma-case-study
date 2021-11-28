@@ -1,0 +1,15 @@
+#cloud-config
+puppet:
+  install: false
+  conf_file: "/etc/puppetlabs/puppet/puppet.conf"
+  exec: true
+  conf:
+    agent:
+      server: "puppet-primary.example.com"
+      certname: "puppet-aws-agent.example.com"
+      environment: "production"
+      runinterval: "1y"
+
+users:
+  - default
+  - name: catalogue-user

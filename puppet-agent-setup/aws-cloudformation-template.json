@@ -1,0 +1,49 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Metadata": {
+    "AWS::CloudFormation::Designer": {
+      "8f395ad0-cc72-4777-83ee-817b7681fa38": {
+        "size": {
+          "width": 60,
+          "height": 60
+        },
+        "position": {
+          "x": 310,
+          "y": 120
+        },
+        "z": 0,
+        "embeds": []
+      }
+    }
+  },
+  "Resources": {
+    "PuppetAgent": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "ImageId": "ami-00105f70a3660f2ae",
+        "InstanceType": "t2.micro",
+        "SecurityGroupIds": [
+          "sg-0be5360e140d4cf62"
+        ],
+        "KeyName": "puppet-master-keys",
+        "UserData": "[Base64 encoded content of ./puppet-setup.yaml"
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "8f395ad0-cc72-4777-83ee-817b7681fa38"
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "AgentIp": {
+      "Value": {
+        "Fn::GetAtt": [
+          "PuppetAgent",
+          "PublicIp"
+        ]
+      },
+      "Description": "Public IP of the created puppet agent instance"
+    }
+  }
+}

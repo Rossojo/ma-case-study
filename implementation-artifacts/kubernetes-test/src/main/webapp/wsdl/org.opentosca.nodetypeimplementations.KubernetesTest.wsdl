@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="KubernetesTestService" targetNamespace="http://nodetypeimplementations.opentosca.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://nodetypeimplementations.opentosca.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://nodetypeimplementations.opentosca.org/" elementFormDefault="unqualified" targetNamespace="http://nodetypeimplementations.opentosca.org/" version="1.0">
+<xs:element name="testPing" type="tns:testPing"/>
+<xs:complexType name="testPing">
+    <xs:sequence>
+      <xs:element form="qualified" minOccurs="0" name="kubeConfigContents" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="clusterNamespace" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="PodName" type="xs:string"/>
+      <xs:element form="qualified" minOccurs="0" name="ContainerID" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="testPing">
+    <wsdl:part name="parameters" element="tns:testPing">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="KubernetesTest">
+    <wsdl:operation name="testPing">
+      <wsdl:input name="testPing" message="tns:testPing">
+    </wsdl:input>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="KubernetesTestServiceSoapBinding" type="tns:KubernetesTest">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="testPing">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="testPing">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="KubernetesTestService">
+    <wsdl:port name="KubernetesTestPort" binding="tns:KubernetesTestServiceSoapBinding">
+      <soap:address location="http://localhost:9090/KubernetesTestPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

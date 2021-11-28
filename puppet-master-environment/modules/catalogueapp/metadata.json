@@ -1,0 +1,26 @@
+{
+  "name": "catalogueapp",
+  "version": "0.0.1",
+  "author": "Alexandros Fouskas",
+  "dependencies": [],
+  "summary": "Set up go application",
+  "license": "Apache-2.0",
+  "source": "https://module-source.fouskas.de",
+  "project_page": "https://module-source.fouskas.de",
+  "issues_url": "https://module-source.fouskas.de",
+  "data_provider": "hiera",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "20.04"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 6.0.0 < 7.0.0"
+    }
+  ]
+}
