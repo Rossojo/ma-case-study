@@ -2,7 +2,7 @@ model-name: case-study
 technology-instances:
   kubernetes:
     sock-shop:
-      kube-config-path: \path\to\.kube\config
+      kube-config-path: [\path\to\.kube\config]
       target-namespace: sock-shop
       ignored-container-names:
         - "queue-master"
@@ -19,9 +19,9 @@ technology-instances:
 #        - "orders-db"
   puppet:
     catalogue:
-      user: ubuntu
-      ip: 173.212.243.69
-      private-key-path: \path\to\.ssh\puppet-master
+      user: [os username]
+      ip: [primary server ip address]
+      private-key-path: [\path\to\.ssh\puppet-master]
       environment: production
 #  terraform:
 #    desktop-local:
@@ -29,6 +29,6 @@ technology-instances:
   cloud-formation:
     catalogue:
       region: eu-central-1
-      stack-name: puppet-agent-06
+      stack-name: [stack name]
       profile-name: TOSCin
 
